@@ -7,4 +7,9 @@ export default defineConfig({
       ? "/angy-find-template/"
       : "/" && process.env.VITE_API_KEY,
   plugins: [react()],
+  build: {
+    define: {
+      "process.env.VITE_API_KEY": JSON.stringify(process.env.VITE_API_KEY),
+    },
+  },
 });
