@@ -6,17 +6,18 @@ export const SearchTemplate = () => {
   const [thisResult, setThisResult] = useState();
 
   const getResult = async () => {
-    const myApi = process.env.VITE_API_KEY;
+    const myApi = import.meta.env.VITE_API_KEY;
     console.log(myApi);
     if (myApi !== undefined) {
-      const genAI = new GoogleGenerativeAI(myApi);
+      console.log("isOk");
+      /*   const genAI = new GoogleGenerativeAI(myApi);
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
       const prompt = `${thisInfo}`;
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
-      setThisResult(text);
+      setThisResult(text); */
     } else {
       console.log("myAPI_KEY is null");
     }
