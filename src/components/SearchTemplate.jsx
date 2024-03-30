@@ -10,14 +10,14 @@ export const SearchTemplate = () => {
     console.log(myApi);
     if (myApi !== undefined) {
       console.log("isOk");
-      /*   const genAI = new GoogleGenerativeAI(myApi);
+      const genAI = new GoogleGenerativeAI(myApi);
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
       const prompt = `${thisInfo}`;
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
-      setThisResult(text); */
+      setThisResult(text);
     } else {
       console.log("myAPI_KEY is null");
     }
