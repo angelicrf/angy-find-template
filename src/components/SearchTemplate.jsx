@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useState } from "react";
 
-export const SearchTemplate = () => {
+export const SearchTemplate = ({ thisPrompt, btnText }) => {
   const [thisInfo, setThisInfo] = useState("");
   const [thisResult, setThisResult] = useState();
 
@@ -12,7 +12,7 @@ export const SearchTemplate = () => {
       console.log("isOk");
       const genAI = new GoogleGenerativeAI(myApi);
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-      const prompt = `${thisInfo}`;
+      const prompt = `${thisPrompt}${thisInfo}`;
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
@@ -36,7 +36,7 @@ export const SearchTemplate = () => {
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-3 rounded"
         onClick={getResult}
       >
-        Search Data
+        {btnText}
       </button>
       <div>{thisResult && thisResult}</div>
     </div>
